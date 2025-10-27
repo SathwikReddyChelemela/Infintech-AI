@@ -30,6 +30,12 @@ function WelcomePage({ onLoginClick }) {
       <Container maxWidth="lg" sx={{ py: 8, flex: 1 }}>
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography variant="h2" sx={{ fontWeight: 900, mb: 1, color: '#fff', letterSpacing: 2, textShadow: '0 2px 16px #000a' }}>Welcome</Typography>
+          <Typography sx={{ color: '#90caf9', fontWeight: 700, fontSize: 22, mb: 1 }}>
+            infintech AI
+          </Typography>
+          <Typography sx={{ color: '#b0b0b0', fontSize: 18, maxWidth: 600, mx: 'auto', mb: 1 }}>
+            Your intelligent assistant for insurance and financial technology. infintech AI helps you manage, compare, and understand insurance products—auto, health, life, property, and more—using advanced AI to simplify your financial decisions and support you every step of the way.
+          </Typography>
           <Typography sx={{ color: '#b0b0b0', fontSize: 20 }}>Choose an insurance product to get started</Typography>
         </Box>
 
