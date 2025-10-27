@@ -16,8 +16,13 @@ function WelcomePage({ onLoginClick }) {
     <Box sx={{ minHeight: '100vh', bgcolor: '#111', color: '#fff', display: 'flex', flexDirection: 'column' }}>
       {/* Minimal navbar with only Login */}
       <AppBar position="static" sx={{ bgcolor: 'rgba(0,0,0,0.95)', boxShadow: 'none', borderBottom: '1px solid #222' }}>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 1, color: '#fff' }}>infintech AI</Typography>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Box>
+            <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 1, color: '#fff', lineHeight: 1 }}>infintech AI</Typography>
+            <Typography variant="caption" sx={{ color: '#90caf9', fontWeight: 500, letterSpacing: 0.5 }}>
+              Insurance & Financial Tech AI
+            </Typography>
+          </Box>
           <Button variant="contained" color="primary" onClick={onLoginClick} sx={{ fontWeight: 700, borderRadius: 2, px: 3 }}>Login</Button>
         </Toolbar>
       </AppBar>
