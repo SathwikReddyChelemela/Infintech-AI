@@ -1,0 +1,5 @@
+# Placeholder to satisfy platforms that expect a requirements.txt in each service folder.
+# This React client does not use Python at runtime.
+# If your deployment platform scans folders and expects a requirements.txt, keep this file.
+
+# No Python dependencies needed for the client.
