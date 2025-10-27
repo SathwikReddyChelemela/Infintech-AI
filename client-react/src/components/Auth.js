@@ -164,6 +164,9 @@ function Auth({ onLogin, onBackToLanding }) {
                 <Box sx={{ mt: 2, mb: 1 }}>
                   <LinearProgress variant="determinate" value={loginPercent} sx={{ height: 8, borderRadius: 2, background: '#222', '& .MuiLinearProgress-bar': { background: 'linear-gradient(90deg, #4169e1 60%, #27408b 100%)' } }} />
                   <Typography variant="caption" sx={{ color: '#90caf9', fontWeight: 600, display: 'block', textAlign: 'center', mt: 0.5 }}>{loginPercent}%</Typography>
+                  <Typography variant="body2" sx={{ color: '#ffe082', fontWeight: 500, textAlign: 'center', mt: 1 }}>
+                    Please wait for 1 min, server is starting...
+                  </Typography>
                 </Box>
               )}
               <Button
@@ -276,9 +279,15 @@ function Auth({ onLogin, onBackToLanding }) {
                       boxShadow: '0 12px 26px rgba(25,118,210,0.28)'
                     }
                   }}
+                  disabled={loginLoading}
                 >
                   Signup
                 </Button>
+                {loginLoading && (
+                  <Typography variant="body2" sx={{ color: '#ffe082', fontWeight: 500, textAlign: 'center', mt: 2 }}>
+                    Please wait for 1 min, server is starting...
+                  </Typography>
+                )}
               </Box>
             </Grow>
           )}
