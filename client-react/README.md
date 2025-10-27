@@ -34,7 +34,15 @@ This is the React frontend for the Financial RBAC RAG application.
 
 ## Prerequisites
 
-Make sure the FastAPI backend server is running on `http://localhost:8000` before starting the React app.
+Make sure the FastAPI backend server is running and reachable.
+For local dev: `http://localhost:8000`.
+For Render (or other hosting): set `REACT_APP_API_BASE_URL` to your backend URL.
+
+Example `.env` for Render:
+
+```
+REACT_APP_API_BASE_URL=https://infintech-ai.onrender.com
+```
 
 ## Available Scripts
 

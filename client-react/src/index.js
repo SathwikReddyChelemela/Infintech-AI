@@ -6,8 +6,10 @@ import axios from 'axios';
 import { ThemeProvider, createTheme, CssBaseline, GlobalStyles } from '@mui/material';
 
 // Prefer direct API calls with an auto-detected baseURL instead of relying on CRA proxy
+// Prefer explicit backend URL from env in production (e.g., Render)
+const envApi = process.env.REACT_APP_API_BASE_URL;
 const apiCandidates = [
-  process.env.REACT_APP_API_BASE_URL,
+  envApi,
   'http://127.0.0.1:8001',
   'http://127.0.0.1:8000',
   'http://localhost:8001',
@@ -15,7 +17,10 @@ const apiCandidates = [
 ].filter(Boolean);
 
 const savedApiBase = typeof localStorage !== 'undefined' ? localStorage.getItem('apiBase') : null;
-if (savedApiBase) {
+if (envApi) {
+  axios.defaults.baseURL = envApi;
+  try { localStorage.setItem('apiBase', envApi); } catch {}
+} else if (savedApiBase) {
   axios.defaults.baseURL = savedApiBase;
 } else if (apiCandidates.length) {
   axios.defaults.baseURL = apiCandidates[0];
