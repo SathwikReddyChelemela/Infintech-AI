@@ -1,0 +1,11 @@
+__pycache__
+.pytest_cache
+.venv
+.vscode
+.DS_Store
+*.pyc
+*.log
+server.log
+uploaded_docs
+*.ipynb
+*.env.local

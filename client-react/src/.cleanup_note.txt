@@ -1,0 +1,2 @@
+This project previously contained backup App_* files. They were removed on 2025-10-20 to reduce clutter.
+Kept active entry: App.js

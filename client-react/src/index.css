@@ -1,0 +1,64 @@
+/* Essential global styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Auth page hero background */
+.auth-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #312e81 100%);
+  padding: 24px;
+}
+
+/* Subtle glass card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+  color: #e5e7eb;
+}
+
+.glass-card .MuiInputBase-root,
+.glass-card .MuiFormLabel-root,
+.glass-card .MuiTypography-root,
+.glass-card .MuiSelect-select,
+.glass-card .MuiInputBase-input {
+  color: #e5e7eb !important;
+}
+
+.glass-card .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(229, 231, 235, 0.3) !important;
+}
+
+.glass-card .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(229, 231, 235, 0.6) !important;
+}
+
+.glass-card .Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #7c3aed !important;
+}
+
+.glass-card .MuiButton-contained {
+  box-shadow: none;
+}
+
+.glass-card .MuiTab-root {
+  color: rgba(229, 231, 235, 0.7);
+}
+
+.glass-card .Mui-selected {
+  color: #fff !important;
+}
+
+.glass-card .MuiTabs-indicator {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed, #db2777);
+}

@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+
+# Python
+.venv/
+venv/
+__pycache__/
+server/__pycache__/
+
+# Node / React
+client-react/node_modules/
+client-react/build/
+client-react/.env.local
+client-react/.env*
+
+# Env files
+.env
+*.env
+server/.env
+
+# Logs
+*.log
+server/server.log
