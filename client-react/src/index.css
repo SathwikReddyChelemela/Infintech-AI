@@ -6,45 +6,51 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #000 !important;
+  color: #f3f6fb !important;
+  font-weight: 500;
 }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* Auth page hero background */
 .auth-hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #312e81 100%);
+  background: #000 !important;
   padding: 24px;
 }
 
 /* Subtle glass card effect */
 .glass-card {
-  background: rgba(255, 255, 255, 0.08) !important;
+  background: #111 !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
-  color: #e5e7eb;
+  border: 1px solid #222;
+  box-shadow: 0 10px 30px #000a !important;
+  color: #f3f6fb;
+  font-weight: 500;
 }
 
 .glass-card .MuiInputBase-root,
-.glass-card .MuiFormLabel-root,
-.glass-card .MuiTypography-root,
-.glass-card .MuiSelect-select,
-.glass-card .MuiInputBase-input {
-  color: #e5e7eb !important;
+    .glass-card .MuiFormLabel-root,
+    .glass-card .MuiTypography-root,
+    .glass-card .MuiSelect-select,
+    .glass-card .MuiInputBase-input {
+      color: #f3f6fb !important;
+      font-weight: 500;
 }
 
 .glass-card .MuiOutlinedInput-notchedOutline {
-  border-color: rgba(229, 231, 235, 0.3) !important;
+  border-color: #333 !important;
 }
 
 .glass-card .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-  border-color: rgba(229, 231, 235, 0.6) !important;
+  border-color: #444 !important;
 }
 
 .glass-card .Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: #7c3aed !important;
+  border-color: #fff !important;
 }
 
 .glass-card .MuiButton-contained {
@@ -52,7 +58,8 @@ body {
 }
 
 .glass-card .MuiTab-root {
-  color: rgba(229, 231, 235, 0.7);
+  color: #f3f6fb;
+  font-weight: 700;
 }
 
 .glass-card .Mui-selected {

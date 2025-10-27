@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import theme from './theme';
 import Auth from './components/Auth';
+import Box from '@mui/material/Box';
+import WelcomePage from './components/WelcomePage';
 import CustomerHomePage from './components/CustomerHomePage';
 import AnalystHomePage from './components/AnalystHomePage';
 import UnderwriterHomePage from './components/UnderwriterHomePage';
 import AdminHomePage from './components/AdminHomePage';
 import AuditorHomePage from './components/AuditorHomePage';
 
-const theme = createTheme({
-  palette: {
-    primary: { main: '#1976d2' },
-    secondary: { main: '#dc004e' },
-  },
-});
 
 function App() {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
     // Check if user is logged in from localStorage
@@ -72,11 +70,21 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {isAuthenticated && user ? (
-        renderHomePage()
-      ) : (
-        <Auth onLogin={handleLogin} />
-      )}
+      {isAuthenticated && user
+        ? <>
+            {renderHomePage()}
+            <Box sx={{ mt: 8, py: 2, bgcolor: '#000', textAlign: 'center', color: '#fff', fontSize: 14, borderTop: '1px solid #222' }}>
+              All rights reserved to Sathwik Reddy Chelemela
+            </Box>
+          </>
+        : showLogin
+          ? <>
+              <Auth onLogin={handleLogin} onBackToLanding={() => setShowLogin(false)} />
+              <Box sx={{ mt: 8, py: 2, bgcolor: '#000', textAlign: 'center', color: '#fff', fontSize: 14, borderTop: '1px solid #222' }}>
+                All rights reserved to Sathwik Reddy Chelemela
+              </Box>
+            </>
+          : <WelcomePage onLoginClick={() => setShowLogin(true)} />}
     </ThemeProvider>
   );
 }

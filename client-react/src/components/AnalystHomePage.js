@@ -124,7 +124,7 @@ function AnalystHomePage({ user, onLogout }) {
   const bellId = bellOpen ? 'analyst-notifs' : undefined;
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: '#f5f5f5' }}>
+  <Box sx={{ minHeight: '100vh', bgcolor: '#111', color: '#fff' }}>
       <Navbar
         notificationsCount={unseenCount || stats.pendingReview}
         onSupportClick={() => setSupportOpen(true)}
@@ -184,7 +184,7 @@ function AnalystHomePage({ user, onLogout }) {
         {/* Statistics Cards */}
   <Grid container spacing={3} sx={{ mb: 4 }}>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', transition: 'transform .2s ease, box-shadow .2s ease', '&:hover': { transform: 'translateY(-4px)', boxShadow: 6 } }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4, transition: 'transform .2s, box-shadow .2s', '&:hover': { transform: 'translateY(-4px)', boxShadow: 8 } }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -198,7 +198,7 @@ function AnalystHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', color: 'white', transition: 'transform .2s ease, box-shadow .2s ease', '&:hover': { transform: 'translateY(-4px)', boxShadow: 6 } }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4, transition: 'transform .2s, box-shadow .2s', '&:hover': { transform: 'translateY(-4px)', boxShadow: 8 } }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -212,7 +212,7 @@ function AnalystHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', color: 'white', transition: 'transform .2s ease, box-shadow .2s ease', '&:hover': { transform: 'translateY(-4px)', boxShadow: 6 } }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4, transition: 'transform .2s, box-shadow .2s', '&:hover': { transform: 'translateY(-4px)', boxShadow: 8 } }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -226,7 +226,7 @@ function AnalystHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -240,7 +240,7 @@ function AnalystHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -254,7 +254,7 @@ function AnalystHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -269,12 +269,12 @@ function AnalystHomePage({ user, onLogout }) {
         </Grid>
 
         {/* Work Queue */}
-        <Card sx={{ mb: 4 }}>
+        <Card sx={{ mb: 4, bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
           <CardContent>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6">Application Work Queue</Typography>
               <Box sx={{ display: 'flex', gap: 1 }}>
-                <Button startIcon={<FilterList />} size="small">Filter</Button>
+                <Button startIcon={<FilterList />} size="small" variant="contained" color="primary" sx={{ borderRadius: 2, fontWeight: 700, bgcolor: '#222', color: '#90caf9', '&:hover': { bgcolor: '#333', color: '#fff' } }}>Filter</Button>
                 <Button startIcon={<Refresh />} size="small" onClick={fetchAnalystDashboard}>
                   Refresh
                 </Button>
@@ -351,7 +351,7 @@ function AnalystHomePage({ user, onLogout }) {
         {/* Quick Actions and Tips */}
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
-            <Card>
+            <Card sx={{ bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Typography variant="h6" gutterBottom>Key Responsibilities</Typography>
                 <Divider sx={{ my: 2 }} />

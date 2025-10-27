@@ -189,7 +189,7 @@ function AdminHomePage({ user, onLogout }) {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: '#f5f5f5' }}>
+  <Box sx={{ minHeight: '100vh', bgcolor: '#111', color: '#fff' }}>
       <Navbar
         notificationsCount={unseenCount}
         onSupportClick={() => setSupportOpen(true)}
@@ -251,7 +251,7 @@ function AdminHomePage({ user, onLogout }) {
         {/* Statistics Cards */}
         <Grid container spacing={3} sx={{ mb: 4 }}>
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -265,7 +265,7 @@ function AdminHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -279,7 +279,7 @@ function AdminHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -293,7 +293,7 @@ function AdminHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -310,7 +310,7 @@ function AdminHomePage({ user, onLogout }) {
         </Grid>
 
         {/* Tabs */}
-        <Card sx={{ mb: 4 }}>
+        <Card sx={{ mb: 4, bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs value={tabValue} onChange={handleTabChange}>
               <Tab label="Overview" icon={<DashboardIcon />} iconPosition="start" />
@@ -372,7 +372,7 @@ function AdminHomePage({ user, onLogout }) {
             <CardContent>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
                 <Typography variant="h6">User Management</Typography>
-                <Button startIcon={<Add />} variant="contained" onClick={openCreateUser} disabled={busy}>Add User</Button>
+                <Button startIcon={<Add />} variant="contained" color="primary" sx={{ borderRadius: 2, fontWeight: 700, bgcolor: '#222', color: '#90caf9', '&:hover': { bgcolor: '#333', color: '#fff' } }} onClick={openCreateUser} disabled={busy}>Add User</Button>
               </Box>
               <Divider sx={{ mb: 2 }} />
               {loading ? (
@@ -540,7 +540,7 @@ function AdminHomePage({ user, onLogout }) {
       </Container>
 
       {/* Create User Dialog */}
-      <Card sx={{ display: createDialogOpen ? 'block' : 'none', position: 'fixed', right: 24, bottom: 24, width: 360, zIndex: 1200 }}>
+      <Card sx={{ display: createDialogOpen ? 'block' : 'none', position: 'fixed', right: 24, bottom: 24, width: 360, zIndex: 1200, bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
         <CardContent>
           <Typography variant="h6" gutterBottom>Create New User</Typography>
           <Divider sx={{ mb: 2 }} />

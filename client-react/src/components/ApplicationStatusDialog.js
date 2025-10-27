@@ -582,4 +582,13 @@ function ApplicationStatusDialog({ open, onClose, user, onAddPayment }) {
   );
 }
 
+
+const Footer = () => (
+  <Box sx={{ mt: 8, py: 2, bgcolor: 'background.paper', textAlign: 'center', color: 'text.secondary', fontSize: 14 }}>
+    All rights reserved to Sathwik Reddy Chelemela
+  </Box>
+);
+
+// At the end of the file, after the main component export, export Footer for use in parent or render it after the Dialog if needed.
+
 export default ApplicationStatusDialog;

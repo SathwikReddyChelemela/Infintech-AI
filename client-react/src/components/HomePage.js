@@ -636,4 +636,20 @@ function HomePage({ user, onLogout }) {
   );
 }
 
+// Footer
+import Box from '@mui/material/Box';
+
+const Footer = () => (
+  <Box sx={{ mt: 8, py: 2, bgcolor: 'background.paper', textAlign: 'center', color: 'text.secondary', fontSize: 14 }}>
+    All rights reserved to Sathwik Reddy Chelemela
+  </Box>
+);
+
+// ...existing code...
+
+// Add Footer at the end of the main render
+// ...existing code...
+  <Footer />
+// ...existing code...
+
 export default HomePage;

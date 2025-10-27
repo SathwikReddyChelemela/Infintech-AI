@@ -61,7 +61,7 @@ function AuditorHomePage({ user, onLogout }) {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: '#f5f5f5' }}>
+  <Box sx={{ minHeight: '100vh', bgcolor: '#111', color: '#fff' }}>
       <Navbar onLogout={onLogout} user={user} maxWidth="lg" />
       <Container maxWidth="lg">
         <Box sx={{ my: 2 }}>
@@ -76,7 +76,7 @@ function AuditorHomePage({ user, onLogout }) {
         {/* Stats Cards */}
         <Grid container spacing={3} sx={{ mb: 3 }}>
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                   <Box>
@@ -89,7 +89,7 @@ function AuditorHomePage({ user, onLogout }) {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                   <Box>
@@ -102,7 +102,7 @@ function AuditorHomePage({ user, onLogout }) {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                   <Box>
@@ -115,7 +115,7 @@ function AuditorHomePage({ user, onLogout }) {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                   <Box>
@@ -130,7 +130,7 @@ function AuditorHomePage({ user, onLogout }) {
         </Grid>
 
         {/* Filters & Actions */}
-        <Card sx={{ mb: 3 }}>
+        <Card sx={{ mb: 3, bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
           <CardContent>
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
               <TextField size="small" label="Action" value={filters.action} onChange={(e)=>setFilters({...filters, action:e.target.value})} />
@@ -138,8 +138,8 @@ function AuditorHomePage({ user, onLogout }) {
               <TextField size="small" label="Application ID" value={filters.application_id} onChange={(e)=>setFilters({...filters, application_id:e.target.value})}
                 InputProps={{ endAdornment: (<InputAdornment position="end"><Search /></InputAdornment>) }}
               />
-              <Button variant="contained" onClick={fetchEvents} disabled={loading}>Search</Button>
-              <Button startIcon={<Refresh />} onClick={fetchDashboard} disabled={loading}>Refresh</Button>
+              <Button variant="contained" color="primary" sx={{ borderRadius: 2, fontWeight: 700, bgcolor: '#222', color: '#90caf9', '&:hover': { bgcolor: '#333', color: '#fff' } }} onClick={fetchEvents} disabled={loading}>Search</Button>
+              <Button startIcon={<Refresh />} variant="contained" color="primary" sx={{ borderRadius: 2, fontWeight: 700, bgcolor: '#222', color: '#90caf9', '&:hover': { bgcolor: '#333', color: '#fff' } }} onClick={fetchDashboard} disabled={loading}>Refresh</Button>
               <Button color="warning" variant="outlined" onClick={runIntegrityCheck} disabled={loading}>Run Integrity Check</Button>
             </Box>
           </CardContent>
@@ -148,7 +148,7 @@ function AuditorHomePage({ user, onLogout }) {
         {/* Events & Issues */}
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
-            <Card>
+            <Card sx={{ bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Typography variant="h6" gutterBottom>Recent Audit Events</Typography>
                 <Divider sx={{ mb: 2 }} />
@@ -206,5 +206,20 @@ function AuditorHomePage({ user, onLogout }) {
     </Box>
   );
 }
+
+// Footer
+
+const Footer = () => (
+  <Box sx={{ mt: 8, py: 2, bgcolor: 'background.paper', textAlign: 'center', color: 'text.secondary', fontSize: 14 }}>
+    All rights reserved to Sathwik Reddy Chelemela
+  </Box>
+);
+
+// ...existing code...
+
+// Add Footer at the end of the main render
+// ...existing code...
+  <Footer />
+// ...existing code...
 
 export default AuditorHomePage;

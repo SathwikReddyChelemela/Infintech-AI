@@ -253,7 +253,7 @@ function UnderwriterHomePage({ user, onLogout }) {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: '#f5f5f5' }}>
+  <Box sx={{ minHeight: '100vh', bgcolor: '#111', color: '#fff' }}>
       <Navbar
         notificationsCount={unseenCount || stats.slaBreach}
         onSupportClick={() => setSupportOpen(true)}
@@ -326,7 +326,7 @@ function UnderwriterHomePage({ user, onLogout }) {
         {/* Statistics Cards */}
         <Grid container spacing={3} sx={{ mb: 4 }}>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -340,7 +340,7 @@ function UnderwriterHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -354,7 +354,7 @@ function UnderwriterHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -368,7 +368,7 @@ function UnderwriterHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -382,7 +382,7 @@ function UnderwriterHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)', color: 'white' }}>
+            <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -399,12 +399,12 @@ function UnderwriterHomePage({ user, onLogout }) {
         </Grid>
 
         {/* Case Queue */}
-        <Card sx={{ mb: 4 }}>
+        <Card sx={{ mb: 4, bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
           <CardContent>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6">Underwriting Case Queue</Typography>
               <Box sx={{ display: 'flex', gap: 1 }}>
-                <Button startIcon={<FilterList />} size="small">Filter by Risk</Button>
+                <Button startIcon={<FilterList />} size="small" variant="contained" color="primary" sx={{ borderRadius: 2, fontWeight: 700, bgcolor: '#222', color: '#90caf9', '&:hover': { bgcolor: '#333', color: '#fff' } }}>Filter by Risk</Button>
                 <Button startIcon={<Refresh />} size="small" onClick={fetchUnderwriterDashboard}>
                   Refresh
                 </Button>
@@ -473,7 +473,7 @@ function UnderwriterHomePage({ user, onLogout }) {
         {/* Risk Assessment Tools & Guidelines */}
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
-            <Card>
+            <Card sx={{ bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Typography variant="h6" gutterBottom>Risk Assessment Guidelines</Typography>
                 <Divider sx={{ my: 2 }} />

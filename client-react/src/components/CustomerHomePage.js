@@ -139,7 +139,7 @@ function CustomerHomePage({ user, onLogout }) {
   ];
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: '#f5f5f5' }}>
+  <Box sx={{ minHeight: '100vh', bgcolor: '#111', color: '#fff' }}>
       <Navbar
         notificationsCount={unreadCount}
         onSupportClick={() => setSupportOpen(true)}
@@ -206,7 +206,7 @@ function CustomerHomePage({ user, onLogout }) {
         {/* Statistics Cards */}
   <Grid container spacing={3} sx={{ mb: 4 }}>
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
+              <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -220,7 +220,7 @@ function CustomerHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', color: 'white' }}>
+              <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -234,7 +234,7 @@ function CustomerHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', color: 'white' }}>
+              <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -248,7 +248,7 @@ function CustomerHomePage({ user, onLogout }) {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Card sx={{ height: '100%', background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', color: 'white' }}>
+              <Card sx={{ height: '100%', bgcolor: '#181818', color: '#fff', border: '1px solid #222', boxShadow: '0 4px 24px #000a', borderRadius: 4 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
@@ -311,9 +311,8 @@ function CustomerHomePage({ user, onLogout }) {
                   </Typography>
                 </CardContent>
                 <CardActions sx={{ justifyContent: 'center', pb: 2 }}>
-                  <Button 
-                    size="small" 
-                    variant="outlined"
+                  <Button variant="contained" color="primary" sx={{ borderRadius: 2, fontWeight: 700, bgcolor: '#222', color: '#90caf9', '&:hover': { bgcolor: '#333', color: '#fff' } }} 
+                    size="small"
                     onClick={(e) => {
                       e.stopPropagation();
                       if (action.title === 'Apply for Insurance') {

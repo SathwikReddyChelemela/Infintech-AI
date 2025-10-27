@@ -18,6 +18,7 @@ import {
 } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import axios from 'axios';
+import Footer from './Footer';
 
 const API_URL = '/auth';
 
@@ -88,19 +89,16 @@ function Auth({ onLogin, onBackToLanding }) {
   };
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh', px: 2 }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh', px: 2, background: '#000' }}>
       <Card sx={{
         minWidth: 400,
         maxWidth: 500,
         width: '100%',
-        transition: 'transform 300ms ease, box-shadow 300ms ease, background 300ms ease',
-        ...(tabValue === 1 ? {
-          // Glass effect only for signup view; uses translucent white so theme colors remain intact
-          background: 'rgba(255,255,255,0.65)',
-          backdropFilter: 'blur(12px)',
-          border: '1px solid rgba(255,255,255,0.35)',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.12)'
-        } : {})
+  background: '#111',
+  color: '#f3f6fb',
+        border: '1px solid #222',
+        boxShadow: '0 20px 40px #000a',
+        transition: 'transform 300ms ease, box-shadow 300ms ease, background 300ms ease'
       }}>
         <CardContent>
           {onBackToLanding && (
@@ -120,8 +118,8 @@ function Auth({ onLogin, onBackToLanding }) {
           {/* Removed the extra subtitle to keep signup page clean */}
 
           <Tabs value={tabValue} onChange={handleTabChange} centered sx={{ mb: 3 }}>
-            <Tab label="Login" />
-            <Tab label="Signup" />
+            <Tab label="Login" sx={{ color: '#f3f6fb', fontWeight: 700 }} />
+            <Tab label="Signup" sx={{ color: '#f3f6fb', fontWeight: 700 }} />
           </Tabs>
 
           {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
@@ -166,12 +164,15 @@ function Auth({ onLogin, onBackToLanding }) {
                   margin="normal"
                   sx={{
                     '& .MuiOutlinedInput-root': {
-                      backgroundColor: 'rgba(255,255,255,0.7)',
-                      backdropFilter: 'blur(6px)',
+                      backgroundColor: '#181818',
+                      color: '#f3f6fb',
+                      border: '1px solid #333',
+                      fontWeight: 500,
                       transition: 'box-shadow 0.2s ease, transform 0.2s ease',
-                      '&:hover': { boxShadow: '0 4px 16px rgba(0,0,0,0.06)' },
-                      '&.Mui-focused': { boxShadow: '0 0 0 3px rgba(25,118,210,0.15)' }
-                    }
+                      '&:hover': { boxShadow: '0 4px 16px #0006' },
+                      '&.Mui-focused': { boxShadow: '0 0 0 3px #fff3' }
+                    },
+                    input: { color: '#f3f6fb', fontWeight: 500 }
                   }}
                 />
                 <TextField
@@ -183,23 +184,28 @@ function Auth({ onLogin, onBackToLanding }) {
                   margin="normal"
                   sx={{
                     '& .MuiOutlinedInput-root': {
-                      backgroundColor: 'rgba(255,255,255,0.7)',
-                      backdropFilter: 'blur(6px)',
+                      backgroundColor: '#181818',
+                      color: '#f3f6fb',
+                      border: '1px solid #333',
+                      fontWeight: 500,
                       transition: 'box-shadow 0.2s ease, transform 0.2s ease',
-                      '&:hover': { boxShadow: '0 4px 16px rgba(0,0,0,0.06)' },
-                      '&.Mui-focused': { boxShadow: '0 0 0 3px rgba(25,118,210,0.15)' }
-                    }
+                      '&:hover': { boxShadow: '0 4px 16px #0006' },
+                      '&.Mui-focused': { boxShadow: '0 0 0 3px #fff3' }
+                    },
+                    input: { color: '#f3f6fb', fontWeight: 500 }
                   }}
                 />
                 <FormControl fullWidth margin="normal">
-                  <InputLabel>Choose Role</InputLabel>
+                  <InputLabel sx={{ color: '#f3f6fb', fontWeight: 500 }}>Choose Role</InputLabel>
                   <Select
                     value={signupData.role}
                     label="Choose Role"
                     onChange={(e) => setSignupData({ ...signupData, role: e.target.value })}
                     sx={{
-                      backgroundColor: 'rgba(255,255,255,0.7)',
-                      backdropFilter: 'blur(6px)'
+                      backgroundColor: '#181818',
+                      color: '#f3f6fb',
+                      border: '1px solid #333',
+                      fontWeight: 500
                     }}
                   >
                     <MenuItem value="customer">Customer</MenuItem>
@@ -220,9 +226,12 @@ function Auth({ onLogin, onBackToLanding }) {
                     helperText="Required for Admin signups"
                     sx={{
                       '& .MuiOutlinedInput-root': {
-                        backgroundColor: 'rgba(255,255,255,0.7)',
-                        backdropFilter: 'blur(6px)'
-                      }
+                        backgroundColor: '#181818',
+                        color: '#f3f6fb',
+                        border: '1px solid #333',
+                        fontWeight: 500
+                      },
+                      input: { color: '#f3f6fb', fontWeight: 500 }
                     }}
                   />
                 )}

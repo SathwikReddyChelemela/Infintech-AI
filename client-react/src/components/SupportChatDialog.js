@@ -65,14 +65,14 @@ function SupportChatDialog({ open, onClose, user }) {
   };
 
   return (
-    <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
-      <DialogTitle>
+  <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+      <DialogTitle sx={{ bgcolor: 'rgba(65,105,225,0.10)', color: '#4169e1', fontWeight: 700 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="h6">Support</Typography>
-          <IconButton onClick={handleClose} disabled={sending}><Close /></IconButton>
+          <Typography variant="h6" sx={{ color: '#4169e1', fontWeight: 700 }}>Support Chat</Typography>
+          <IconButton onClick={handleClose} disabled={sending} sx={{ color: '#4169e1' }}><Close /></IconButton>
         </Box>
       </DialogTitle>
-      <DialogContent dividers>
+      <DialogContent dividers sx={{ bgcolor: '#181818' }}>
         <Box ref={listRef} sx={{ maxHeight: 400, overflow: 'auto', pr: 1 }}>
           <List>
             {messages.map((m) => (
@@ -81,11 +81,17 @@ function SupportChatDialog({ open, onClose, user }) {
               }}>
                 <Box sx={{
                   maxWidth: '80%',
-                  bgcolor: m.from === 'you' ? 'primary.main' : 'grey.100',
-                  color: m.from === 'you' ? 'primary.contrastText' : 'text.primary',
+                  bgcolor: m.from === 'you'
+                    ? 'linear-gradient(90deg, #4169e1 70%, #27408b 100%)'
+                    : 'rgba(255,255,255,0.04)',
+                  color: m.from === 'you' ? '#fff' : '#CCCCCC',
                   px: 1.5,
                   py: 1,
-                  borderRadius: 2
+                  borderRadius: 2,
+                  boxShadow: m.from === 'you' ? '0 2px 8px 0 rgba(65,105,225,0.15)' : 'none',
+                  border: m.from === 'you' ? '1px solid #4169e1' : '1px solid rgba(255,255,255,0.08)',
+                  fontWeight: m.from === 'you' ? 600 : 500,
+                  transition: 'box-shadow 0.2s',
                 }}>
                   <Typography variant="body2" sx={{ whiteSpace: 'pre-wrap' }}>{m.text}</Typography>
                 </Box>
@@ -95,7 +101,7 @@ function SupportChatDialog({ open, onClose, user }) {
         </Box>
       </DialogContent>
       <Divider />
-      <DialogActions sx={{ alignItems: 'center', p: 2, pt: 1 }}>
+      <DialogActions sx={{ alignItems: 'center', p: 2, pt: 1, bgcolor: 'rgba(65,105,225,0.08)' }}>
         <TextField
           fullWidth
           placeholder="Type your message..."
@@ -103,9 +109,20 @@ function SupportChatDialog({ open, onClose, user }) {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           size="small"
+          sx={{
+            bgcolor: '#222',
+            color: '#fff',
+            borderRadius: 2,
+            input: { color: '#fff' },
+            '& .MuiOutlinedInput-root': {
+              color: '#fff',
+              borderColor: '#4169e1',
+              fontWeight: 500,
+            },
+          }}
         />
-        <IconButton color="primary" onClick={sendMessage} disabled={sending || !input.trim()} sx={{ ml: 1 }}>
-          {sending ? <CircularProgress size={20} /> : <Send />}
+        <IconButton onClick={sendMessage} disabled={sending || !input.trim()} sx={{ ml: 1, bgcolor: '#4169e1', color: '#fff', borderRadius: 2, '&:hover': { bgcolor: '#27408b' } }}>
+          {sending ? <CircularProgress size={20} sx={{ color: '#fff' }} /> : <Send />}
         </IconButton>
       </DialogActions>
     </Dialog>
