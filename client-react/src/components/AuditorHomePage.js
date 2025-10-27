@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   Box, Container, Typography, Grid, Card, CardContent, Button, Divider, Chip,
-  TextField, InputAdornment, IconButton, List, ListItem, ListItemText, Alert
+  TextField, InputAdornment, List, ListItem, ListItemText, Alert
 } from '@mui/material';
 import { Search, Refresh, Shield, FactCheck, Assignment, ErrorOutline } from '@mui/icons-material';
 import axios from 'axios';
@@ -138,9 +138,9 @@ function AuditorHomePage({ user, onLogout }) {
               <TextField size="small" label="Application ID" value={filters.application_id} onChange={(e)=>setFilters({...filters, application_id:e.target.value})}
                 InputProps={{ endAdornment: (<InputAdornment position="end"><Search /></InputAdornment>) }}
               />
-              <Button variant="contained" onClick={fetchEvents}>Search</Button>
-              <Button startIcon={<Refresh />} onClick={fetchDashboard}>Refresh</Button>
-              <Button color="warning" variant="outlined" onClick={runIntegrityCheck}>Run Integrity Check</Button>
+              <Button variant="contained" onClick={fetchEvents} disabled={loading}>Search</Button>
+              <Button startIcon={<Refresh />} onClick={fetchDashboard} disabled={loading}>Refresh</Button>
+              <Button color="warning" variant="outlined" onClick={runIntegrityCheck} disabled={loading}>Run Integrity Check</Button>
             </Box>
           </CardContent>
         </Card>
