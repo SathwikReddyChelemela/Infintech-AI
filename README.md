@@ -1,4 +1,4 @@
-# Infintech AI – Medical Assistant Platform
+# Infintech AI 
 
 ## Overview
 Infintech AI is a modern, full-stack insurance and financial technology platform designed to simplify insurance management, comparison, and support using advanced AI. The project leverages a microservices architecture, secure JWT authentication, a React frontend, FastAPI backend, Dockerized deployment, and integrated LLM-powered chat support.
