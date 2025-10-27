@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Box,
   Card,
@@ -14,7 +14,8 @@ import {
   Select,
   MenuItem,
   IconButton,
-  Grow
+  Grow,
+  LinearProgress
 } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import axios from 'axios';
@@ -33,6 +34,9 @@ function Auth({ onLogin, onBackToLanding }) {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [loginPercent, setLoginPercent] = useState(0);
+  const loginInterval = useRef(null);
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
@@ -41,8 +45,14 @@ function Auth({ onLogin, onBackToLanding }) {
   };
 
   const handleLogin = async () => {
+    setError('');
+    setLoginLoading(true);
+    setLoginPercent(0);
+    // Animate percent from 0 to 99 while waiting
+    loginInterval.current = setInterval(() => {
+      setLoginPercent((prev) => (prev < 99 ? prev + Math.floor(Math.random() * 3 + 1) : 99));
+    }, 120);
     try {
-      setError('');
       const formData = new FormData();
       formData.append('username', loginData.username);
       formData.append('password', loginData.password);
@@ -54,6 +64,9 @@ function Auth({ onLogin, onBackToLanding }) {
       });
 
       if (response.status === 200) {
+        clearInterval(loginInterval.current);
+        setLoginPercent(100);
+        setTimeout(() => setLoginLoading(false), 300);
         const { access_token, user } = response.data;
         localStorage.setItem('token', access_token);
         const userData = {
@@ -64,6 +77,9 @@ function Auth({ onLogin, onBackToLanding }) {
         onLogin(userData);
       }
     } catch (err) {
+      clearInterval(loginInterval.current);
+      setLoginLoading(false);
+      setLoginPercent(0);
       setError(err.response?.data?.detail || 'Login failed');
     }
   };
@@ -133,6 +149,7 @@ function Auth({ onLogin, onBackToLanding }) {
                 value={loginData.username}
                 onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
                 margin="normal"
+                disabled={loginLoading}
               />
               <TextField
                 fullWidth
@@ -141,14 +158,22 @@ function Auth({ onLogin, onBackToLanding }) {
                 value={loginData.password}
                 onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
                 margin="normal"
+                disabled={loginLoading}
               />
+              {loginLoading && (
+                <Box sx={{ mt: 2, mb: 1 }}>
+                  <LinearProgress variant="determinate" value={loginPercent} sx={{ height: 8, borderRadius: 2, background: '#222', '& .MuiLinearProgress-bar': { background: 'linear-gradient(90deg, #4169e1 60%, #27408b 100%)' } }} />
+                  <Typography variant="caption" sx={{ color: '#90caf9', fontWeight: 600, display: 'block', textAlign: 'center', mt: 0.5 }}>{loginPercent}%</Typography>
+                </Box>
+              )}
               <Button
                 fullWidth
                 variant="contained"
                 onClick={handleLogin}
                 sx={{ mt: 2 }}
+                disabled={loginLoading}
               >
-                Login
+                {loginLoading ? 'Logging in...' : 'Login'}
               </Button>
             </Box>
           )}
